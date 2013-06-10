@@ -8,7 +8,13 @@ thing lot of times is so fucking boring and I hate it.
 Just run in your app root:
 
 ```sh
-wget -qO- URL_HERE | sh
+wget -qO- http://git.io/63HVSg | sh
+```
+
+or with `curl`:
+
+```sh
+curl -s http://git.io/63HVSg | sh
 ```
 
 It will clone this repo in a `scripts` folder inside your repository folder.
@@ -30,7 +36,13 @@ If you want to group a lot of tasks in one task, for example, `test` and
 all: test anotherthing
 ```
 
-## HALP?
+## Pitfals
+
+- If you already have a `scripts` folder, you will have some problems. You can just backup
+your existent `scripts`, install this, and then copy back your old files, or simply
+manually install modular-build.
+
+## Help?
 
 [twitter](http://twitter.com/caarlos0) |
 [github](http://github.com/caarlos0) |
