@@ -13,13 +13,13 @@ would be cool to share the structure with other people.
 Just run in your app root (with `wget`):
 
 ```sh
-wget -qO- http://git.io/63HVSg | sh
+wget -qO- http://git.io/63HVSg | bash
 ```
 
 or with `curl`:
 
 ```sh
-curl -s http://git.io/63HVSg | sh
+curl -s http://git.io/63HVSg | bash
 ```
 
 It will clone this repo in a `scripts` folder inside your app folder.
