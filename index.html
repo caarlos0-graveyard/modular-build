@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Modular-build by caarlos0</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Modular-build</h1>
+        <h2>Modular build scripts relying on GNU Make.</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/caarlos0/modular-build/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/caarlos0/modular-build/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/caarlos0/modular-build" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="modular-build" class="anchor" href="#modular-build"><span class="octicon octicon-link"></span></a>modular-build</h1>
+
+<p>Basically, a <code>Makefile</code> and some base things to do modular GNU Make
+tasks for any project, because doing same things lots of times is
+fucking boring and I hate this.</p>
+
+<p>I originally created this here at <a href="http://www.fluig.com/">Fluig</a> with contributions of
+<a href="http://github.com/lucasmerencia">@lucasmerencia</a> to use with our project, but I decided that it
+would be cool to share the structure with other people.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Just run in your app root (with <code>wget</code>):</p>
+
+<div class="highlight"><pre>wget -qO- http://git.io/63HVSg | bash
+</pre></div>
+
+<p>or with <code>curl</code>:</p>
+
+<div class="highlight"><pre>curl -s http://git.io/63HVSg | bash
+</pre></div>
+
+<p>It will clone this repo in a <code>scripts</code> folder inside your app folder.</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Let's say you want to create a <code>test</code> task. We have to do 3 simple steps:</p>
+
+<ol>
+<li>Run <code>make newtask</code> (inform name <code>test</code>);</li>
+<li>Edit your script (<code>scripts/test.sh</code>);</li>
+<li>Run <code>make test</code> and GNU Make will do the rest for you.</li>
+</ol><p>If you want to group a lot of tasks in one task, for example, <code>test</code> and
+<code>anotherthing</code>:</p>
+
+<div class="highlight"><pre><span class="nf">all</span><span class="o">:</span> <span class="m">test anotherthing</span>
+</pre></div>
+
+<h2>
+<a name="benefits" class="anchor" href="#benefits"><span class="octicon octicon-link"></span></a>Benefits</h2>
+
+<ul>
+<li>You can call a lot of scripts once: <code>make one two three</code> (and with a custom order);</li>
+<li>Autocomplete in task names;</li>
+<li>Variables and functions sharing between scripts (<code>base.sh</code>), a good example is
+that you can share a custom <code>$MAVEN_OPTS</code> between scripts;</li>
+<li>Easy to add new scripts (as described above).</li>
+</ul><h2>
+<a name="pitfals" class="anchor" href="#pitfals"><span class="octicon octicon-link"></span></a>Pitfals</h2>
+
+<ul>
+<li>If you already have a <code>scripts</code> folder, you will have some problems. You can just backup
+your existent <code>scripts</code>, install this, and then copy back your old files, or simply
+manually install modular-build;</li>
+<li>It will probably not work in NTFS filesystems due to NTFS file permissions.</li>
+</ul><h2>
+<a name="help" class="anchor" href="#help"><span class="octicon octicon-link"></span></a>Help?</h2>
+
+<p><a href="http://twitter.com/caarlos0">twitter</a> |
+<a href="http://github.com/caarlos0">github</a> |
+<a href="http://carlosbecker.com">site</a></p>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
