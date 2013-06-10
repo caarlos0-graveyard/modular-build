@@ -10,7 +10,7 @@ would be cool to share the structure with other people.
 
 ## Installation
 
-Just run in your app root:
+Just run in your app root (with `wget`):
 
 ```sh
 wget -qO- http://git.io/63HVSg | sh
@@ -22,17 +22,15 @@ or with `curl`:
 curl -s http://git.io/63HVSg | sh
 ```
 
-It will clone this repo in a `scripts` folder inside your repository folder.
+It will clone this repo in a `scripts` folder inside your app folder.
 
 ## Usage
 
 Let's say you want to create a `test` task. We have to do 3 simple steps:
 
-1. `make newtask`;
-1. Inform the task name as `test`;
+1. Run `make newtask` (inform name `test`);
 1. Edit your script (`scripts/test.sh`);
-
-Then you can call `make test` and GNU Make will do the rest.
+1. Run `make test` and GNU Make will do the rest for you.
 
 If you want to group a lot of tasks in one task, for example, `test` and
 `anotherthing`:
@@ -43,16 +41,18 @@ all: test anotherthing
 
 ## Benefits
 
-- You can call a lot of scripts once: `make one two three`;
-- Autocomple in script names;
-- Variables and functions sharing between scripts (`base.sh`);
-- Easy to add new scripts.
+- You can call a lot of scripts once: `make one two three` (and with a custom order);
+- Autocomplete in task names;
+- Variables and functions sharing between scripts (`base.sh`), a good example is
+that you can share a custom `$MAVEN_OPTS` between scripts;
+- Easy to add new scripts (as described above).
 
 ## Pitfals
 
 - If you already have a `scripts` folder, you will have some problems. You can just backup
 your existent `scripts`, install this, and then copy back your old files, or simply
-manually install modular-build.
+manually install modular-build;
+- It will probably not work in NTFS filesystems due to NTFS file permissions.
 
 ## Help?
 
