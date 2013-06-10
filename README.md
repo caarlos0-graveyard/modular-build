@@ -41,7 +41,13 @@ If you want to group a lot of tasks in one task, for example, `test` and
 all: test anotherthing
 ```
 
-## HALP?
+## Pitfals
+
+- If you already have a `scripts` folder, you will have some problems. You can just backup
+your existent `scripts`, install this, and then copy back your old files, or simply
+manually install modular-build.
+
+## Help?
 
 [twitter](http://twitter.com/caarlos0) |
 [github](http://github.com/caarlos0) |
