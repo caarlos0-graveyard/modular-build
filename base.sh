@@ -39,8 +39,8 @@ function footer {
 function c_echo {
   # reset formatting
   RESET='\e[0m'
-	TEXT=$1
-	while [ "$2" != "" ]; do
+  TEXT=$1
+  while [ "$2" != "" ]; do
     PARAM=`echo $2 | awk -F= '{print $1}'`
     VALUE=`echo $2 | awk -F= '{print $2}'`
 
@@ -57,16 +57,16 @@ function c_echo {
       --yellow)
         color='\033[33m'
         ;;
-			--blue)
+      --blue)
         color='\033[34m'
         ;;
-			--magenta)
+      --magenta)
         color='\033[35m'
         ;;
-			--cyan)
+      --cyan)
         color='\033[36m'
         ;;
-			--white)
+      --white)
         color='\033[37m'
         ;;
 
@@ -82,7 +82,6 @@ function c_echo {
         ;;
     esac
     shift
-	done
-
-	echo -e "${style}${color}${TEXT}${RESET}"
+  done
+  echo -e "${style}${color}${TEXT}${RESET}"
 }
