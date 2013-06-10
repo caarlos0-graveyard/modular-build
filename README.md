@@ -8,7 +8,13 @@ thing lot of times is so fucking boring and I hate it.
 Just run in your app root:
 
 ```sh
-wget -qO- URL_HERE | sh
+wget -qO- http://git.io/63HVSg | sh
+```
+
+or with `curl`:
+
+```sh
+curl -s http://git.io/63HVSg | sh
 ```
 
 It will clone this repo in a `scripts` folder inside your repository folder.
