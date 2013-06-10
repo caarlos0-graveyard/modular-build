@@ -8,6 +8,9 @@ script = ./scripts/$(1).sh
 # please see some usage examples bellow
 bin = ./bin/$(1)
 
+newtask:
+	$(call script,newtask)
+
 # example script
 example:
 	$(call script,example)

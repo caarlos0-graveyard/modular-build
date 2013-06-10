@@ -17,14 +17,9 @@ It will clone this repo in a `scripts` folder inside your repository folder.
 
 Let's say you want to create a `test` task. We have to do 3 simple steps:
 
-1. `cp scripts/{example.sh,test.sh}`;
+1. `make newtask`;
+1. Inform the task name as `test`;
 1. Edit your script (`scripts/test.sh`);
-1. Add "test" task to Makefile:
-
-```Makefile
-test:
-  $(call script,test)
-```
 
 Then you can call `make test` and GNU Make will do the rest.
 
