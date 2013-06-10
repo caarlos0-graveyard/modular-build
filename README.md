@@ -1,7 +1,12 @@
 # modular-build
 
-Basically a `Makefile` with a lot of modular tasks, because doing the same
-thing lot of times is so fucking boring and I hate it.
+Basically, a `Makefile` and some base things to do modular GNU Make
+tasks for any project, because doing same things lots of times is
+fucking boring and I hate this.
+
+I originally created this here at [Fluig][0] with contributions of
+[@lucasmerencia][1] to use with our project, but I decided that it
+would be cool to share the structure with other people.
 
 ## Installation
 
@@ -19,7 +24,7 @@ curl -s http://git.io/63HVSg | sh
 
 It will clone this repo in a `scripts` folder inside your repository folder.
 
-## How to use
+## Usage
 
 Let's say you want to create a `test` task. We have to do 3 simple steps:
 
