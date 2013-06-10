@@ -41,6 +41,13 @@ If you want to group a lot of tasks in one task, for example, `test` and
 all: test anotherthing
 ```
 
+## Benefits
+
+- You can call a lot of scripts once: `make one two three`;
+- Autocomple in script names;
+- Variables and functions sharing between scripts (`base.sh`);
+- Easy to add new scripts.
+
 ## Pitfals
 
 - If you already have a `scripts` folder, you will have some problems. You can just backup
