@@ -16,10 +16,13 @@ becho "Downloading scripts..."
 git clone https://github.com/caarlos0/modular-build.git scripts
 
 # link Makefile
-becho "\n\nLinking Makefile..."
+becho "\nLinking Makefile..."
 ln -s scripts/Makefile .
 
-becho "\n\n\n"
+becho "\nFixing permissions..."
+chmod +x scripts/*.sh
+
+becho "\n\n"
 becho "=============================="
 becho " modular-build installer \n"
 becho " Installation successfully finished."
