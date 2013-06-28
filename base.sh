@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
+set -o pipefail
 
+source $(dirname $0)/env.sh
 
 export CHECK="\033[32m✔ Done\033[39m"
 export HR="\033[37m--------------------------------------------------\033[39m"
@@ -17,19 +19,18 @@ function hr {
 
 # show a header with newlines, blue echo and hr
 function header {
-  c_echo "$@" --blue --bold --underline
-  hr
+  c_echo "-----> $@" --blue --bold
 }
 
 # section done function
 function section_done {
-  echo -e "$@ ${CHECK}"
+  echo -e "$@ ${CHECK}" | prefixed
 }
 
 # footer function with hr and success
 function footer {
+  c_echo "Success!" --green --bold | prefixed
   hr
-  c_echo "Success!" --green --bold
   newline
 }
 
@@ -85,3 +86,28 @@ function c_echo {
   done
   echo -e "${style}${color}${TEXT}${RESET}"
 }
+
+# assert that some command exists; exit if not
+function assert_command {
+  cmd="$1"
+  command -v $cmd >/dev/null 2>&1 || {
+    c_echo "$cmd: Command required but not found. Aborting." --red >&2;
+    exit 1;
+  }
+  echo "$cmd: $(command -v $cmd)";
+}
+
+# assert if an array of commands exists.
+function assert_commands {
+  commands="$@"
+  for cmd in $commands; do
+    assert_command $cmd
+  done
+}
+
+# kinda tab
+function prefixed {
+  sed -e "s/^/       /"
+}
+
+# of course, you can add more functions here!

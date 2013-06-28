@@ -7,8 +7,12 @@ TAB="$(printf '\t')"
 header "Creating a new task..."
 
 # prompts for new script name (with hack to do it in the same line)
-printf 'Please inform the new task name: '
+printf '       Please inform the new task name: '
 read -r name
+
+# prompts for new script name (with hack to do it in the same line)
+printf '       Please inform the new task description: '
+read -r description
 
 # create it and fix permissions
 cp ./scripts/{example,$name}.sh
@@ -17,7 +21,8 @@ chmod +x ./scripts/$name.sh
 # append content to Makefile
 cat <<EOT >> Makefile
 
-# call ${name}
+# calls ${name}
+# ${description}
 ${name}:
 ${TAB}\$(call script,${name})
 EOT
